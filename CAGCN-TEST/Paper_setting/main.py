@@ -164,7 +164,7 @@ if __name__ == '__main__':
         clicked_set = user_dict['train_user_set']
 
     """build model"""
-    print(args.model)
+    args.model = "'"+ args.model+"'"
     if args.model == 'LightGCN':
         model = LightGCN(args).to(args.device)
     elif args.model == 'NGCF':

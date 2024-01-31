@@ -104,7 +104,7 @@ def run(model, optimizer, train_cf, clicked_set, user_dict, adj, args):
             l2_loss = cal_l2_loss(
                 user_embs0, pos_item_embs0, neg_item_embs0, user_embs0.shape[0])
 
-            batch_loss =-( bpr_loss + args.l2 * l2_loss)
+            batch_loss =-( bpr_loss - args.l2 * l2_loss)
 
             optimizer.zero_grad()
             batch_loss.backward()
